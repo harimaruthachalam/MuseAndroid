@@ -1,0 +1,4 @@
+#Mon Jun 17 16:45:22 IST 2019
+base.0=/home/hari/libmuse_6.0.3/android/examples/TestLibMuseAndroid/app/build/intermediates/dex/debug/mergeDexDebug/out
+path.0=classes.dex
+renamed.0=classes.dex
