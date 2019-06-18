@@ -27,12 +27,6 @@
 	        android:layout_height="40dp"
 	        android:text="@string/disconnect" />
 
-		<TextView
-			android:id="@+id/tvAxn"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:visibility="visible" />
 	</LinearLayout>
 	<TextView
    		android:layout_width="match_parent"
@@ -182,6 +176,14 @@
 	            android:layout_width="150dp"
 	            android:layout_height="40dp"
 	            android:text="@string/pause" />
+
+			<TextView
+				android:id="@+id/tvAxn"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="TextView"
+				android:visibility="visible" />
 		</LinearLayout>
 
 </LinearLayout>

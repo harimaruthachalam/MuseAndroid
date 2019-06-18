@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Mon Jun 17 16:45:22 IST 2019
-1.base=/home/hari/libmuse_6.0.3/android/examples/TestLibMuseAndroid/app/build/intermediates/dex/debug/mergeDexDebug/out
+#Tue Jun 18 12:31:19 IST 2019
+1.base=/home/hari/Documents/Projects/MuseAndroid/app/build/intermediates/dex/debug/mergeDexDebug/out
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=DEX
 0.path=lib/armeabi-v7a/libmuse_android.so
 0.set=NATIVE_RESOURCE
-0.base=/home/hari/libmuse_6.0.3/android/examples/TestLibMuseAndroid/app/build/intermediates/transforms/mergeJniLibs/debug/0
+0.base=/home/hari/Documents/Projects/MuseAndroid/app/build/intermediates/transforms/mergeJniLibs/debug/0
 1.path=classes.dex

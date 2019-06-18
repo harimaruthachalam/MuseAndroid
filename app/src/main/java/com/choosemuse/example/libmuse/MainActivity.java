@@ -139,6 +139,10 @@ public class MainActivity extends Activity implements OnClickListener {
     private final double[] accelBuffer = new double[3];
     private boolean accelStale;
 
+
+    int c = 0;
+    boolean jaw = true;
+
     /**
      * We will be updating the UI using a handler instead of in packet handlers because
      * packets come in at a very high frequency and it only makes sense to update the UI
@@ -268,6 +272,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 muse.registerDataListener(dataListener, MuseDataPacketType.BATTERY);
                 muse.registerDataListener(dataListener, MuseDataPacketType.DRL_REF);
                 muse.registerDataListener(dataListener, MuseDataPacketType.QUANTIZATION);
+                muse.registerDataListener(dataListener, MuseDataPacketType.ARTIFACTS);
 
                 // Initiate a connection to the headband and stream the data asynchronously.
                 muse.runAsynchronously();
@@ -432,6 +437,13 @@ public class MainActivity extends Activity implements OnClickListener {
             case BATTERY:
             case DRL_REF:
             case QUANTIZATION:
+            case ARTIFACTS:
+//                Toast.makeText(getApplicationContext(), "Artifact1", Toast.LENGTH_SHORT).show();
+//                TextView tvAxn = (TextView) findViewById(R.id.tvAxn);
+//                tvAxn.setText(Double.toString(p.values().get(1)));
+//                c++;
+
+
             default:
                 break;
         }
@@ -445,6 +457,36 @@ public class MainActivity extends Activity implements OnClickListener {
      * @param muse  The headband that sent the information.
      */
     public void receiveMuseArtifactPacket(final MuseArtifactPacket p, final Muse muse) {
+
+        TextView tvAxn = (TextView) findViewById(R.id.tvAxn);
+        if (p.getJawClench()) {
+            TextView tp9 = (TextView)findViewById(R.id.eeg_tp9);
+            TextView tp10 = (TextView)findViewById(R.id.eeg_tp10);
+
+            if (Double.parseDouble(tp9.getText().toString()) > 900 | Double.parseDouble(tp9.getText().toString()) < 800)
+            {
+                if (Double.parseDouble(tp10.getText().toString()) > 900 | Double.parseDouble(tp10.getText().toString()) < 800)
+                {
+                    tvAxn.setText("Jaw");
+                    Toast.makeText(getApplicationContext(), "Artifact", Toast.LENGTH_SHORT).show();
+                    jaw = false;
+                    new Thread(new Runnable()  {
+                        public void run() {
+                            try {
+                                Thread.sleep(1000);
+                                jaw = true;
+                            }
+                            catch (Exception e){}
+                        }
+                    }).start();
+                }
+            }
+        }
+        if (p.getBlink() & jaw) {
+            tvAxn.setText("Eye");
+            Toast.makeText(getApplicationContext(), "Artifact", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     /**

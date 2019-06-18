@@ -1,1 +1,4 @@
-#Thu Jun 13 19:02:38 IST 2019
+#Tue Jun 18 09:57:59 IST 2019
+base.0=/home/hari/Documents/Projects/MuseAndroid/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

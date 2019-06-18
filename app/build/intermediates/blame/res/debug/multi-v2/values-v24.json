@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/hari/libmuse_6.0.3/android/examples/TestLibMuseAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/home/hari/Documents/Projects/MuseAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/home/hari/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/26c5158f809cc81c4e2919a06f9e9ef9/res/values-v24/values-v24.xml",
