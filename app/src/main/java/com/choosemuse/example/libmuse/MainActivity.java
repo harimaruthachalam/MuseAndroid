@@ -40,6 +40,7 @@ import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -258,24 +259,32 @@ public class MainActivity extends Activity implements OnClickListener {
                 Log.w(TAG, "There is nothing to connect to");
             } else {
 
-                // Cache the Muse that the user has selected.
-                muse = availableMuses.get(musesSpinner.getSelectedItemPosition());
-                // Unregister all prior listeners and register our data listener to
-                // receive the MuseDataPacketTypes we are interested in.  If you do
-                // not register a listener for a particular data type, you will not
-                // receive data packets of that type.
-                muse.unregisterAllListeners();
-                muse.registerConnectionListener(connectionListener);
-                muse.registerDataListener(dataListener, MuseDataPacketType.EEG);
-                muse.registerDataListener(dataListener, MuseDataPacketType.ALPHA_RELATIVE);
-                muse.registerDataListener(dataListener, MuseDataPacketType.ACCELEROMETER);
-                muse.registerDataListener(dataListener, MuseDataPacketType.BATTERY);
-                muse.registerDataListener(dataListener, MuseDataPacketType.DRL_REF);
-                muse.registerDataListener(dataListener, MuseDataPacketType.QUANTIZATION);
-                muse.registerDataListener(dataListener, MuseDataPacketType.ARTIFACTS);
+//                // Cache the Muse that the user has selected.
+//                muse = availableMuses.get(musesSpinner.getSelectedItemPosition());
+//                // Unregister all prior listeners and register our data listener to
+//                // receive the MuseDataPacketTypes we are interested in.  If you do
+//                // not register a listener for a particular data type, you will not
+//                // receive data packets of that type.
+//                muse.unregisterAllListeners();
+//                muse.registerConnectionListener(connectionListener);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.EEG);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.ALPHA_RELATIVE);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.ACCELEROMETER);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.BATTERY);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.DRL_REF);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.QUANTIZATION);
+//                muse.registerDataListener(dataListener, MuseDataPacketType.ARTIFACTS);
+//
+//                // Initiate a connection to the headband and stream the data asynchronously.
+//                muse.runAsynchronously();
 
-                // Initiate a connection to the headband and stream the data asynchronously.
-                muse.runAsynchronously();
+
+                // NExt intend
+                Config.muse = availableMuses.get(musesSpinner.getSelectedItemPosition());
+                Intent intent = new Intent(MainActivity.this, ActivityBCIT9.class);
+                startActivity(intent);
+
+
             }
 
         } else if (v.getId() == R.id.disconnect) {

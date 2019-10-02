@@ -4,6 +4,42 @@
             "outputFile": "/home/hari/Documents/Projects/MuseAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
+                    "source": "/home/hari/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/82464fdc6241c513545b7cb891b77969/res/values-v11/values-v11.xml",
+                    "from": {
+                        "startLines": "2,8,14,20,26,32,38,39,43,47,48,52,56,57,61,66,71,76,78,80,81,82,136,191",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,474,899,1327,1753,2180,2605,2694,2940,3189,3290,3542,3797,3900,4153,4561,4981,5403,5510,5639,5710,5793,9818,13986",
+                        "endLines": "7,13,19,25,31,37,38,42,46,47,51,55,56,60,65,70,75,77,79,80,81,135,190,191",
+                        "endColumns": "12,12,12,12,12,12,88,12,12,100,12,12,102,12,12,12,12,12,12,70,82,12,12,90",
+                        "endOffsets": "469,894,1322,1748,2175,2600,2689,2935,3184,3285,3537,3792,3895,4148,4556,4976,5398,5505,5634,5705,5788,9813,13981,14072"
+                    },
+                    "to": {
+                        "startLines": "10,16,22,28,34,40,46,47,51,55,56,60,64,65,69,74,79,84,86,88,89,90,144,199",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "435,854,1279,1707,2133,2560,2985,3074,3320,3569,3670,3922,4177,4280,4533,4941,5361,5783,5890,6019,6090,6173,10198,14366",
+                        "endLines": "15,21,27,33,39,45,46,50,54,55,59,63,64,68,73,78,83,85,87,88,89,143,198,199",
+                        "endColumns": "12,12,12,12,12,12,88,12,12,100,12,12,102,12,12,12,12,12,12,70,82,12,12,90",
+                        "endOffsets": "849,1274,1702,2128,2555,2980,3069,3315,3564,3665,3917,4172,4275,4528,4936,5356,5778,5885,6014,6085,6168,10193,14361,14452"
+                    }
+                },
+                {
+                    "source": "/home/hari/Documents/Projects/MuseAndroid/app/src/main/res/values-v11/colors.xml",
+                    "from": {
+                        "startLines": "4,5,6,2,3",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "153,199,249,55,102",
+                        "endColumns": "45,49,48,46,50",
+                        "endOffsets": "194,244,293,97,148"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,101,151,200,247",
+                        "endColumns": "45,49,48,46,50",
+                        "endOffsets": "96,146,195,242,293"
+                    }
+                },
+                {
                     "source": "/home/hari/Documents/Projects/MuseAndroid/app/src/main/res/values-v11/styles.xml",
                     "from": {
                         "startLines": "6",
@@ -14,12 +50,12 @@
                         "endOffsets": "309"
                     },
                     "to": {
-                        "startLines": "2",
+                        "startLines": "7",
                         "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
+                        "startOffsets": "298",
+                        "endLines": "9",
                         "endColumns": "12",
-                        "endOffsets": "187"
+                        "endOffsets": "430"
                     }
                 }
             ]
