@@ -26,7 +26,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.choosemuse.libmuse.Accelerometer;
 import com.choosemuse.libmuse.AnnotationData;
 import com.choosemuse.libmuse.ConnectionState;
 import com.choosemuse.libmuse.Eeg;
@@ -75,7 +74,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * 7. You can pause/resume data transmission with the button at the bottom of the screen.
  * 8. To disconnect from the headband, press "Disconnect"
  */
-public class MainActivityBCI extends Activity implements OnClickListener {
+public class MainActivityNoBCI extends Activity implements OnClickListener {
 
     /**
      * Tag used for logging purposes.
@@ -190,8 +189,8 @@ public class MainActivityBCI extends Activity implements OnClickListener {
 
         Log.i(TAG, "LibMuse version=" + LibmuseVersion.instance().getString());
 
-        WeakReference<MainActivityBCI> weakActivity =
-                new WeakReference<MainActivityBCI>(this);
+        WeakReference<MainActivityNoBCI> weakActivity =
+                new WeakReference<MainActivityNoBCI>(this);
         // Register a listener to receive connection state changes.
         connectionListener = new ConnectionListener(weakActivity);
         // Register a listener to receive data from a Muse.
@@ -322,7 +321,7 @@ public class MainActivityBCI extends Activity implements OnClickListener {
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which){
                             dialog.dismiss();
-                            ActivityCompat.requestPermissions(MainActivityBCI.this,
+                            ActivityCompat.requestPermissions(MainActivityNoBCI.this,
                                     new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                     0);
                         }
@@ -518,7 +517,7 @@ public class MainActivityBCI extends Activity implements OnClickListener {
      * Initializes the UI of the     example application.
      */
     private void initUI() {
-        setContentView(R.layout.activity_main_bci);
+        setContentView(R.layout.activity_main);
         Button refreshButton = (Button) findViewById(R.id.refresh);
         refreshButton.setOnClickListener(this);
         Button connectButton = (Button) findViewById(R.id.connect);
@@ -563,37 +562,34 @@ public class MainActivityBCI extends Activity implements OnClickListener {
      * from the buffers.
      */
     private void updateAccel() {
-//        TextView acc_x = (TextView)findViewById(R.id.acc_x);
-//        TextView acc_y = (TextView)findViewById(R.id.acc_y);
-//        TextView acc_z = (TextView)findViewById(R.id.acc_z);
-//        acc_x.setText(String.format("%6.2f", accelBuffer[0]));
-//        acc_y.setText(String.format("%6.2f", accelBuffer[1]));
-//        acc_z.setText(String.format("%6.2f", accelBuffer[2]));
+        TextView acc_x = (TextView)findViewById(R.id.acc_x);
+        TextView acc_y = (TextView)findViewById(R.id.acc_y);
+        TextView acc_z = (TextView)findViewById(R.id.acc_z);
+        acc_x.setText(String.format("%6.2f", accelBuffer[0]));
+        acc_y.setText(String.format("%6.2f", accelBuffer[1]));
+        acc_z.setText(String.format("%6.2f", accelBuffer[2]));
     }
 
     private void updateEeg() {
-        eegBufferT9 = eegBuffer[0];
-        eegBufferT10 = eegBuffer[3];
-//        TextView tp9 = (TextView)findViewById(R.id.eeg_tp9);
-//        TextView fp1 = (TextView)findViewById(R.id.eeg_af7);
-//        TextView fp2 = (TextView)findViewById(R.id.eeg_af8);
-//        TextView tp10 = (TextView)findViewById(R.id.eeg_tp10);
-//        tp9.setText(String.format("%6.2f", eegBuffer[0]));
-//        fp1.setText(String.format("%6.2f", eegBuffer[1]));
-//        fp2.setText(String.format("%6.2f", eegBuffer[2]));
-//        tp10.setText(String.format("%6.2f", eegBuffer[3]));
-        data.add(eegBuffer);
+        TextView tp9 = (TextView)findViewById(R.id.eeg_tp9);
+        TextView fp1 = (TextView)findViewById(R.id.eeg_af7);
+        TextView fp2 = (TextView)findViewById(R.id.eeg_af8);
+        TextView tp10 = (TextView)findViewById(R.id.eeg_tp10);
+        tp9.setText(String.format("%6.2f", eegBuffer[0]));
+        fp1.setText(String.format("%6.2f", eegBuffer[1]));
+        fp2.setText(String.format("%6.2f", eegBuffer[2]));
+        tp10.setText(String.format("%6.2f", eegBuffer[3]));
     }
 
     private void updateAlpha() {
-//        TextView elem1 = (TextView)findViewById(R.id.elem1);
-//        elem1.setText(String.format("%6.2f", alphaBuffer[0]));
-//        TextView elem2 = (TextView)findViewById(R.id.elem2);
-//        elem2.setText(String.format("%6.2f", alphaBuffer[1]));
-//        TextView elem3 = (TextView)findViewById(R.id.elem3);
-//        elem3.setText(String.format("%6.2f", alphaBuffer[2]));
-//        TextView elem4 = (TextView)findViewById(R.id.elem4);
-//        elem4.setText(String.format("%6.2f", alphaBuffer[3]));
+        TextView elem1 = (TextView)findViewById(R.id.elem1);
+        elem1.setText(String.format("%6.2f", alphaBuffer[0]));
+        TextView elem2 = (TextView)findViewById(R.id.elem2);
+        elem2.setText(String.format("%6.2f", alphaBuffer[1]));
+        TextView elem3 = (TextView)findViewById(R.id.elem3);
+        elem3.setText(String.format("%6.2f", alphaBuffer[2]));
+        TextView elem4 = (TextView)findViewById(R.id.elem4);
+        elem4.setText(String.format("%6.2f", alphaBuffer[3]));
     }
 
 
@@ -691,8 +687,8 @@ public class MainActivityBCI extends Activity implements OnClickListener {
             long timestamp = fileReader.getMessageTimestamp();
 
             Log.i(tag, "type: " + type.toString() +
-                  " id: " + Integer.toString(id) +
-                  " timestamp: " + String.valueOf(timestamp));
+                    " id: " + Integer.toString(id) +
+                    " timestamp: " + String.valueOf(timestamp));
 
             switch(type) {
                 // EEG messages contain raw EEG data or DRL/REF data.
@@ -734,9 +730,9 @@ public class MainActivityBCI extends Activity implements OnClickListener {
     // Each of these classes extend from the appropriate listener and contain a weak reference
     // to the activity.  Each class simply forwards the messages it receives back to the Activity.
     class MuseL extends MuseListener {
-        final WeakReference<MainActivityBCI> activityRef;
+        final WeakReference<MainActivityNoBCI> activityRef;
 
-        MuseL(final WeakReference<MainActivityBCI> activityRef) {
+        MuseL(final WeakReference<MainActivityNoBCI> activityRef) {
             this.activityRef = activityRef;
         }
 
@@ -747,9 +743,9 @@ public class MainActivityBCI extends Activity implements OnClickListener {
     }
 
     class ConnectionListener extends MuseConnectionListener {
-        final WeakReference<MainActivityBCI> activityRef;
+        final WeakReference<MainActivityNoBCI> activityRef;
 
-        ConnectionListener(final WeakReference<MainActivityBCI> activityRef) {
+        ConnectionListener(final WeakReference<MainActivityNoBCI> activityRef) {
             this.activityRef = activityRef;
         }
 
@@ -760,9 +756,9 @@ public class MainActivityBCI extends Activity implements OnClickListener {
     }
 
     class DataListener extends MuseDataListener {
-        final WeakReference<MainActivityBCI> activityRef;
+        final WeakReference<MainActivityNoBCI> activityRef;
 
-        DataListener(final WeakReference<MainActivityBCI> activityRef) {
+        DataListener(final WeakReference<MainActivityNoBCI> activityRef) {
             this.activityRef = activityRef;
         }
 

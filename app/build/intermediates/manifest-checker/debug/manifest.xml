@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.choosemuse.example.libmuse.MainActivityBCI"
+            android:name="com.choosemuse.example.libmuse.MainActivityNoBCI"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>

@@ -24,7 +24,6 @@ import com.choosemuse.libmuse.MuseConnectionListener;
 import com.choosemuse.libmuse.MuseConnectionPacket;
 import com.choosemuse.libmuse.MuseDataListener;
 import com.choosemuse.libmuse.MuseDataPacket;
-import com.choosemuse.libmuse.MuseDataPacketType;
 import com.choosemuse.libmuse.MuseFileFactory;
 import com.choosemuse.libmuse.MuseFileReader;
 import com.choosemuse.libmuse.MuseFileWriter;
@@ -37,8 +36,6 @@ import com.choosemuse.libmuse.ResultLevel;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Application;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -531,7 +528,7 @@ public class MainActivity extends Activity implements OnClickListener {
      * Initializes the UI of the example application.
      */
     private void initUI() {
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_bci);
         Button refreshButton = (Button) findViewById(R.id.refresh);
         refreshButton.setOnClickListener(this);
         Button connectButton = (Button) findViewById(R.id.connect);

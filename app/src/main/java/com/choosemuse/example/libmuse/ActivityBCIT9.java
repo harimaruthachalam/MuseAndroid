@@ -294,7 +294,7 @@ public class ActivityBCIT9 extends AppCompatActivity implements OnClickListener 
                     if (muse != null) {
                         muse.disconnect();
                     }
-                    Intent intent = new Intent(ActivityBCIT9.this, MainActivityBCI.class);
+                    Intent intent = new Intent(ActivityBCIT9.this, MainActivityNoBCI.class);
                     startActivity(intent);
                 }
 
@@ -304,6 +304,7 @@ public class ActivityBCIT9 extends AppCompatActivity implements OnClickListener 
                         switch (blinkCount) {
                             case 2:
                             case 3:
+                            case 4:
                                 if(currentHighlight == 0){
                                     playAccumatedWords();
                                     currentState = 0;
@@ -348,6 +349,7 @@ public class ActivityBCIT9 extends AppCompatActivity implements OnClickListener 
                         switch (blinkCount) {
                             case 2:
                             case 3:
+                            case 4:
                                 if(currentHighlight == 0 || currentHighlight == 1){
                                     if (accuEditText.getText().length() == 0) {
                                         accuEditText.append(autoCompleteTextView.getText().toString());
@@ -383,6 +385,7 @@ public class ActivityBCIT9 extends AppCompatActivity implements OnClickListener 
                         switch (blinkCount) {
                             case 2:
                             case 3:
+                            case 4:
                                 if (accuEditText.getText().length() == 0) {
                                     accuEditText.append(suggTV[4].getText().toString());
                                 } else {
@@ -404,6 +407,7 @@ public class ActivityBCIT9 extends AppCompatActivity implements OnClickListener 
                         switch (blinkCount) {
                             case 2:
                             case 3:
+                            case 4:
 //                                playAccumatedWords();
 //                                currentState = 0;
 //                                currentSuggestion = 0;
